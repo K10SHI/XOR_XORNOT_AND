@@ -1,0 +1,82 @@
+#! /mingw64/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1148-gef01dd1e)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\msys64\mingw64\lib\ivl\system.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\msys64\mingw64\lib\ivl\va_math.vpi";
+S_000001763a376720 .scope module, "XOR_XORNOT_AND_gates_tb" "XOR_XORNOT_AND_gates_tb" 2 3;
+ .timescale 0 0;
+v000001763a365e70_0 .var "a", 0 0;
+v000001763a365f10_0 .var "b", 0 0;
+v000001763a365fb0_0 .var "c", 0 0;
+v000001763a366050_0 .net "d", 0 0, L_000001763a343260;  1 drivers
+v000001763a3660f0_0 .net "e", 0 0, L_000001763a366230;  1 drivers
+v000001763a366190_0 .net "f", 0 0, L_000001763a3662a0;  1 drivers
+v000001763a373050_0 .net "y", 0 0, L_000001763a366310;  1 drivers
+S_000001763a3768b0 .scope module, "Instance0" "XOR_XORNOT_AND_gates" 2 6, 3 1 0, S_000001763a376720;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 1 "d";
+    .port_info 1 /OUTPUT 1 "e";
+    .port_info 2 /OUTPUT 1 "f";
+    .port_info 3 /OUTPUT 1 "y";
+    .port_info 4 /INPUT 1 "a";
+    .port_info 5 /INPUT 1 "b";
+    .port_info 6 /INPUT 1 "c";
+L_000001763a343260 .functor XOR 1, v000001763a365e70_0, v000001763a365f10_0, C4<0>, C4<0>;
+L_000001763a366230 .functor XOR 1, v000001763a365f10_0, v000001763a365fb0_0, C4<0>, C4<0>;
+L_000001763a3662a0 .functor NOT 1, v000001763a365e70_0, C4<0>, C4<0>, C4<0>;
+L_000001763a366310 .functor AND 1, v000001763a365e70_0, v000001763a365f10_0, v000001763a365fb0_0, C4<1>;
+v000001763a342e20_0 .net "a", 0 0, v000001763a365e70_0;  1 drivers
+v000001763a32bea0_0 .net "b", 0 0, v000001763a365f10_0;  1 drivers
+v000001763a342b60_0 .net "c", 0 0, v000001763a365fb0_0;  1 drivers
+v000001763a376a40_0 .net "d", 0 0, L_000001763a343260;  alias, 1 drivers
+v000001763a376ae0_0 .net "e", 0 0, L_000001763a366230;  alias, 1 drivers
+v000001763a365d30_0 .net "f", 0 0, L_000001763a3662a0;  alias, 1 drivers
+v000001763a365dd0_0 .net "y", 0 0, L_000001763a366310;  alias, 1 drivers
+    .scope S_000001763a376720;
+T_0 ;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001763a365e70_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001763a365f10_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001763a365fb0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001763a365e70_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001763a365f10_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001763a365fb0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001763a365e70_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001763a365f10_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001763a365fb0_0, 0, 1;
+    %delay 1, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001763a365e70_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001763a365f10_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001763a365fb0_0, 0, 1;
+    %end;
+    .thread T_0;
+    .scope S_000001763a376720;
+T_1 ;
+    %vpi_call 2 14 "$monitor", "T=%t |a=%b |b=%b |c=%b |d(xor)=%b |e(xor)=%b |f(not)=%b | y(and)=%b", $time, v000001763a365e70_0, v000001763a365f10_0, v000001763a365fb0_0, v000001763a366050_0, v000001763a3660f0_0, v000001763a366190_0, v000001763a373050_0 {0 0 0};
+    %vpi_call 2 15 "$dumpfile", "dump.vcd" {0 0 0};
+    %vpi_call 2 16 "$dumpvars" {0 0 0};
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "VERILOG_CIRCUIT3_TB.v";
+    "./VERILOG_CIRCUITS3.v";
